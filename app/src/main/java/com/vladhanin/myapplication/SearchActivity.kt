@@ -2,13 +2,10 @@ package com.vladhanin.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import android.widget.EditText
 import androidx.core.widget.doAfterTextChanged
-import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.RecyclerView
+import com.vladhanin.myapplication.models.User
 
 class SearchActivity : AppCompatActivity() {
 

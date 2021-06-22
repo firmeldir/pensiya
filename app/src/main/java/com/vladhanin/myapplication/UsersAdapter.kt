@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.vladhanin.myapplication.models.User
 
 class UsersAdapter(val context: Context, var dataSet: Array<User>) :
     RecyclerView.Adapter<UsersAdapter.ViewHolder>() {
