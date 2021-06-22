@@ -11,6 +11,6 @@ class IncoreActivity : AppCompatActivity() {
         val rv = findViewById<RecyclerView>(R.id.income)
         val adapter = IncomeAdapter()
         rv.adapter = adapter
-        //adapter.add()
+        Data.CURRENT_USER?.incomes?.let { adapter.add(it) }
     }
 }

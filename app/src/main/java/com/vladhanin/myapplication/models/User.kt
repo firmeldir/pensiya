@@ -6,5 +6,6 @@ data class User(
     val surname: String,
     val passportId: String,
     val incomes: List<Income>,
+    val jobs: List<Job>,
     val isAdmin: Boolean
 )
