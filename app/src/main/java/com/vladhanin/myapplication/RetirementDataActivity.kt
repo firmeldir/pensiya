@@ -14,45 +14,33 @@ import com.google.android.material.textview.MaterialTextView
 
 class RetirementDataActivity : AppCompatActivity() {
 
-    private enum class Role {
-        ADMIN, USER, VIEWER
-    }
-
-    companion object{
-        private val ROLE = Role.USER
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_retirement_data)
 
-        val number = intent.extras?.getInt(C_ACCOUNT_NUMBER)
-        val cname: String? = intent.extras?.getString(C_NAME)
-        val csurname: String? = intent.extras?.getString(C_SURNAME)
+        val argName: String? = intent.extras?.getString(C_NAME)
+        val argSurname: String? = intent.extras?.getString(C_SURNAME)
+        val argPassportId: String? = intent.extras?.getString(C_PASSPORT)
 
-        var name = ""
-        var surname = ""
+        when{
+            argName != null -> {
+                findViewById<MaterialTextView>(R.id.viewerModeText).isGone = false
+                findViewById<MaterialTextView>(R.id.nameText).text = "Імя: $argName"
+                findViewById<MaterialTextView>(R.id.surnameText).text = "Прізвище: $argSurname"
+                findViewById<MaterialTextView>(R.id.passportIdText).text = "ID паспорту: $argPassportId"
 
-        val role = when(number){
-            1 -> {
-                name = "Дмитро"
-                surname = "Ковальчуков"
-                Role.USER
+                val show = getSharedPreferences(C_SP, Context.MODE_PRIVATE).getBoolean(C_SHOW_REQUEST, false)
+                if(argName == "Йозеф" && show){
+                    findViewById<MaterialButton>(R.id.checkRequestButton).apply {
+                        isGone = false
+                        setOnClickListener {
+                            isVisible = false
+                            startActivity(Intent(this@RetirementDataActivity, RequestActivity::class.java))
+                        }
+                    }
+                }
             }
-            2 -> {
-                name = "Данжен"
-                surname = "Местерович"
-                Role.ADMIN
-            }
-            else -> {
-                name = cname ?: ""
-                surname = csurname ?: ""
-                Role.VIEWER
-            }
-        }
-
-        when(role){
-            Role.ADMIN -> {
+            Data.CURRENT_USER!!.isAdmin -> {
                 findViewById<MaterialButton>(R.id.searchForRetirementDataButton).apply {
                     isGone = false
                     setOnClickListener{ navigateToSearch() }
@@ -61,9 +49,12 @@ class RetirementDataActivity : AppCompatActivity() {
                     isGone = false
                     setOnClickListener{ navigateToSearch() }
                 }
+                findViewById<MaterialTextView>(R.id.nameText).text = "Імя: ${Data.CURRENT_USER!!.name}"
+                findViewById<MaterialTextView>(R.id.surnameText).text = "Прізвище: ${Data.CURRENT_USER!!.surname}"
+                findViewById<MaterialTextView>(R.id.passportIdText).text = "ID паспорту: ${Data.CURRENT_USER!!.passportId}"
                 findViewById<MaterialTextView>(R.id.adminModeText).isGone = false
             }
-            Role.USER -> {
+            !Data.CURRENT_USER!!.isAdmin -> {
                 with(findViewById<MaterialButton>(R.id.requestForPensionButton)){
                     isGone = false
                     setOnClickListener {
@@ -73,26 +64,11 @@ class RetirementDataActivity : AppCompatActivity() {
                         Toast.makeText(context, "Запит надіслано", Toast.LENGTH_LONG).show()
                     }
                 }
-            }
-            Role.VIEWER -> {
-                findViewById<MaterialTextView>(R.id.viewerModeText).isGone = false
-                val show = getSharedPreferences(C_SP, Context.MODE_PRIVATE).getBoolean(C_SHOW_REQUEST, false)
-                if(name == "Дмитро" && show){
-                    findViewById<MaterialButton>(R.id.checkRequestButton).apply {
-                        isGone = false
-                        setOnClickListener {
-                            isVisible = false
-                            startActivity(
-                                Intent(this@RetirementDataActivity, RequestActivity::class.java)
-                            )
-                        }
-                    }
-                }
+                findViewById<MaterialTextView>(R.id.nameText).text = "Імя: ${Data.CURRENT_USER!!.name}"
+                findViewById<MaterialTextView>(R.id.surnameText).text = "Прізвище: ${Data.CURRENT_USER!!.surname}"
+                findViewById<MaterialTextView>(R.id.passportIdText).text = "ID паспорту: ${Data.CURRENT_USER!!.passportId}"
             }
         }
-
-        findViewById<MaterialTextView>(R.id.nameText).text = "Імя: $name"
-        findViewById<MaterialTextView>(R.id.surnameText).text = "Прізвище: $surname"
     }
 
     private fun navigateToSearch(){

@@ -15,22 +15,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<MaterialButton>(R.id.enterButton).setOnClickListener {
-            when(findViewById<EditText>(R.id.loginInput).text.toString()){
-                "firmeldir" -> {
-                    startActivity(
-                        Intent(this, RetirementDataActivity::class.java).apply {
-                            putExtra(C_ACCOUNT_NUMBER, 1)
-                        }
-                    )
-                }
-                "admin" -> {
-                    startActivity(
-                        Intent(this, RetirementDataActivity::class.java).apply {
-                            putExtra(C_ACCOUNT_NUMBER, 2)
-                        }
-                    )
-                }
-                else -> {
+
+            findViewById<EditText>(R.id.loginInput).text.toString().let { login ->
+                Data.USERS.find { it.login == login }?.let {
+                    Data.CURRENT_USER = it
+                    startActivity(Intent(this, RetirementDataActivity::class.java))
+                } ?: run {
                     Toast.makeText(baseContext, "Повторіть знову", Toast.LENGTH_SHORT).show()
                 }
             }

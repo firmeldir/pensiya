@@ -76,6 +76,7 @@
             android:textSize="20sp" />
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/passportIdText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

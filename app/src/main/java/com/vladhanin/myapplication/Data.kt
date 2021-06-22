@@ -4,6 +4,8 @@ import com.vladhanin.myapplication.models.User
 
 object Data {
 
+    var CURRENT_USER: User? = null
+
     val USERS = setOf<User>(
         User(
             "firmeldir", "Йозеф", "Бевзенко", "156332142",
