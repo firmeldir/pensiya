@@ -67,7 +67,7 @@ class RetirementDataActivity : AppCompatActivity() {
                         }
                     }
                 }
-                findViewById<MaterialButton>(R.id.jobsButton).setOnClickListener {startActivity(Intent(this, JobsActivity::class.java)) }
+                findViewById<MaterialButton>(R.id.jobsButton).setOnClickListener { JobsActivity.start(this, user) }
                 findViewById<MaterialButton>(R.id.incomeButton).setOnClickListener { IncoreActivity.start(this, user) }
             }
             user.isAdmin -> {
