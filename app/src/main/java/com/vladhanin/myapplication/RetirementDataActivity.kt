@@ -12,6 +12,8 @@ import androidx.core.view.isVisible
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textview.MaterialTextView
 import com.vladhanin.myapplication.models.User
+import java.text.DateFormat
+import java.text.SimpleDateFormat
 
 class RetirementDataActivity : AppCompatActivity() {
 
@@ -25,12 +27,13 @@ class RetirementDataActivity : AppCompatActivity() {
         findViewById<MaterialButton>(R.id.jobsButton).setOnClickListener {startActivity(Intent(this, JobsActivity::class.java)) }
         findViewById<MaterialButton>(R.id.incomeButton).setOnClickListener { startActivity(Intent(this, IncoreActivity::class.java)) }
 
-        findViewById<MaterialTextView>(R.id.nameText).text = user.name
-        findViewById<MaterialTextView>(R.id.surnameText).text = user.surname
-        findViewById<MaterialTextView>(R.id.pensionIdText).text = user.pensionId
-        findViewById<MaterialTextView>(R.id.dateOfBirthdayText).text = user.dateOfBirthday.toString()
-        findViewById<MaterialTextView>(R.id.officialAddressText).text = user.officialAddress
-        findViewById<MaterialTextView>(R.id.actualAddressText).text = user.actualAddress
+        findViewById<MaterialTextView>(R.id.nameText).text = "Имя: ${user.name}"
+        findViewById<MaterialTextView>(R.id.surnameText).text = "Фамилия: ${user.surname}"
+        findViewById<MaterialTextView>(R.id.pensionIdText).text = "Номер пенсійної справи ID: ${user.pensionId}"
+        val df = SimpleDateFormat("yyyy-MM-dd")
+        findViewById<MaterialTextView>(R.id.dateOfBirthdayText).text = "Дата рождения: ${df.format(user.dateOfBirthday)}"
+        findViewById<MaterialTextView>(R.id.officialAddressText).text = "Место пропистки: ${user.officialAddress}"
+        findViewById<MaterialTextView>(R.id.actualAddressText).text = "Место проживания: ${user.actualAddress}"
 
         findViewById<MaterialButton>(R.id.requestForPensionButton).apply {
             setOnClickListener {
