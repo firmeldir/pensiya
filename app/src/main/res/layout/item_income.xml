@@ -9,6 +9,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         android:text="20.04.1992" />
 
     <TextView
@@ -16,6 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         android:text="Школа 1" />
 
     <TextView
@@ -23,6 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         android:text="Вчитель" />
 
     <TextView
@@ -30,6 +36,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="16500"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         android:layout_weight="1"/>
 
 </LinearLayout>
