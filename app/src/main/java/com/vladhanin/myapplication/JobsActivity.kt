@@ -27,7 +27,7 @@ class JobsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_jobs)
         rv = findViewById(R.id.jobs)
-        rv.adapter = JobAdapter(Data.CURRENT_USER?.jobs ?: listOf())
+        rv.adapter = JobAdapter(user?.jobs ?: Data.CURRENT_USER?.jobs ?: listOf())
 
         val add = findViewById<Button>(R.id.add)
         val edOrg = findViewById<EditText>(R.id.ed_organization)
