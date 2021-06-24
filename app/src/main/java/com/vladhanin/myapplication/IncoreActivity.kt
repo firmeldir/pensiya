@@ -1,5 +1,6 @@
 package com.vladhanin.myapplication
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,7 +14,7 @@ class IncoreActivity : AppCompatActivity() {
 
         var user: User? = null
 
-        fun start(activity: AdminEditorActivity, user: User) {
+        fun start(activity: Activity, user: User) {
             this.user = user
             activity.startActivity(Intent(activity, IncoreActivity::class.java))
         }

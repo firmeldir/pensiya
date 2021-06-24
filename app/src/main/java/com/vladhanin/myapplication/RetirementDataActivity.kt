@@ -25,9 +25,6 @@ class RetirementDataActivity : AppCompatActivity() {
         val userLogin: String? = intent.extras?.getString(C_LOGIN)
         val user: User = userLogin?.let { Data.USERS.find { it.login == userLogin }!! } ?: Data.CURRENT_USER!!
 
-        findViewById<MaterialButton>(R.id.jobsButton).setOnClickListener {startActivity(Intent(this, JobsActivity::class.java)) }
-        findViewById<MaterialButton>(R.id.incomeButton).setOnClickListener { startActivity(Intent(this, IncoreActivity::class.java)) }
-
         findViewById<MaterialTextView>(R.id.nameText).text = "Ім'я: " + user.name
         findViewById<MaterialTextView>(R.id.surnameText).text = "Прізвище: " + user.surname
         findViewById<MaterialTextView>(R.id.pensionIdText).text = "Номер пенсійної справи: " + user.pensionId
@@ -43,7 +40,7 @@ class RetirementDataActivity : AppCompatActivity() {
             findViewById<MaterialTextView>(R.id.pensionDateText).text = it.date
             findViewById<MaterialButton>(R.id.requestForPensionButton).isEnabled = false
         }
-        
+
         if(user.pension != null || ((Date().time - user.dateOfBirthday.time) / 31_536_000_000L) < 65){
             findViewById<MaterialButton>(R.id.requestForPensionButton).isEnabled = false
         }
@@ -70,6 +67,8 @@ class RetirementDataActivity : AppCompatActivity() {
                         }
                     }
                 }
+                findViewById<MaterialButton>(R.id.jobsButton).setOnClickListener {startActivity(Intent(this, JobsActivity::class.java)) }
+                findViewById<MaterialButton>(R.id.incomeButton).setOnClickListener { IncoreActivity.start(this, user) }
             }
             user.isAdmin -> {
                 findViewById<MaterialTextView>(R.id.modeText).text = "admin mode"
@@ -85,11 +84,13 @@ class RetirementDataActivity : AppCompatActivity() {
                         startActivity(Intent(this@RetirementDataActivity, SearchActivity::class.java))
                     }
                 }
-
+                findViewById<MaterialButton>(R.id.jobsButton).setOnClickListener {startActivity(Intent(this, JobsActivity::class.java)) }
+                findViewById<MaterialButton>(R.id.incomeButton).setOnClickListener { startActivity(Intent(this, IncoreActivity::class.java)) }
             }
             else -> {
                 findViewById<MaterialTextView>(R.id.modeText).text = ""
-
+                findViewById<MaterialButton>(R.id.jobsButton).setOnClickListener {startActivity(Intent(this, JobsActivity::class.java)) }
+                findViewById<MaterialButton>(R.id.incomeButton).setOnClickListener { startActivity(Intent(this, IncoreActivity::class.java)) }
             }
         }
     }
