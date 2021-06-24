@@ -4,6 +4,7 @@ import com.vladhanin.myapplication.models.Income
 import com.vladhanin.myapplication.models.Job
 import com.vladhanin.myapplication.models.Pension
 import com.vladhanin.myapplication.models.User
+import java.text.SimpleDateFormat
 import java.time.Instant
 import java.util.*
 
@@ -17,7 +18,7 @@ object Data {
             "Йозеф",
             "Бевзенко",
             "156332142",
-            Date(999999000),
+            SimpleDateFormat("dd/MM/yyyy").parse("02/10/1952"),
             "вулиця Трояндова, 12, Чернівці, Чернівецька область, 58000",
             "вулиця Головна, 16, Чернівці, Чернівецька область, 58000",
             listOf(
@@ -46,7 +47,7 @@ object Data {
             "Артем",
             "Бандровський",
             "996042174",
-            Date(889919000),
+            SimpleDateFormat("dd/MM/yyyy").parse("03/05/1992"),
             "вулиця Качалова, 3А, Дніпро, Дніпропетровська область, 49000",
             "вулиця Тиверська, 1, Дніпро, Дніпропетровська область, 49000",
             listOf(
@@ -79,7 +80,7 @@ object Data {
             "Атанас",
             "Балтача",
             "298475188",
-            Date(),
+            SimpleDateFormat("dd/MM/yyyy").parse("12/02/1984"),
             "",
             "",
             listOf(
@@ -94,7 +95,7 @@ object Data {
             "Лідія",
             "Архипчук",
             "276976705",
-            Date(779919000),
+            SimpleDateFormat("dd/MM/yyyy").parse("12/04/1967"),
             "Пилипівський провулок, 5А, Київ, 02000",
             "вулиця Василя Дончука, 7, Київ, 02000",
             listOf(
