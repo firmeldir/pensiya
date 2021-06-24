@@ -22,6 +22,12 @@ class RetirementDataActivity : AppCompatActivity() {
         val argSurname: String? = intent.extras?.getString(C_SURNAME)
         val argPassportId: String? = intent.extras?.getString(C_PASSPORT)
 
+        findViewById<MaterialButton>(R.id.incomeButton).setOnClickListener {
+            startActivity(
+                Intent(this, IncoreActivity::class.java)
+            )
+        }
+
         when{
             argName != null -> {
                 findViewById<MaterialTextView>(R.id.viewerModeText).isGone = false

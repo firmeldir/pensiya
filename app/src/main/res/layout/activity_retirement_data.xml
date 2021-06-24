@@ -129,11 +129,21 @@
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/incomeButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="Переглянути доходи"
+        app:layout_constraintBottom_toTopOf="@+id/checkRequestButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/checkRequestButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:layout_margin="12dp"
+        android:visibility="gone"
         android:text="Переглянути запит користувача"
         app:layout_constraintBottom_toTopOf="@+id/allUsersDataButton"
         app:layout_constraintEnd_toEndOf="parent"
