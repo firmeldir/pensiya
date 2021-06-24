@@ -67,17 +67,18 @@ class RetirementDataActivity : AppCompatActivity() {
                         }
                     }
                 }
+                findViewById<MaterialButton>(R.id.adminEditorButton).apply {
+                    isGone = false
+                    setOnClickListener{
+                        AdminEditorActivity.start(this@RetirementDataActivity, user)
+                    }
+                }
                 findViewById<MaterialButton>(R.id.jobsButton).setOnClickListener { JobsActivity.start(this, user) }
                 findViewById<MaterialButton>(R.id.incomeButton).setOnClickListener { IncoreActivity.start(this, user) }
             }
             user.isAdmin -> {
                 findViewById<MaterialTextView>(R.id.modeText).text = "admin mode"
-                findViewById<MaterialButton>(R.id.adminEditorButton).apply {
-                    isGone = false
-                    setOnClickListener{
-                        startActivity(Intent(this@RetirementDataActivity, AdminEditorActivity::class.java))
-                    }
-                }
+
                 findViewById<MaterialButton>(R.id.allUsersDataButton).apply {
                     isGone = false
                     setOnClickListener{
