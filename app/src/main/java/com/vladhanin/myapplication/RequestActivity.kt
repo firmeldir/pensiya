@@ -40,39 +40,3 @@ class RequestActivity : AppCompatActivity() {
         findViewById<RecyclerView>(R.id.jobs).adapter = JobAdapter(Data.CURRENT_USER?.jobs ?: listOf())
     }
 }
-
-class JobAdapter(private val data: List<Job>) : RecyclerView.Adapter<JobAdapter.ViewHolder>() {
-
-
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder).
-     */
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val organization: TextView = view.findViewById(R.id.organization)
-        val position: TextView = view.findViewById(R.id.position)
-        val period: TextView = view.findViewById(R.id.period)
-    }
-
-    // Create new views (invoked by the layout manager)
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        // Create a new view, which defines the UI of the list item
-        val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.item_job, viewGroup, false)
-
-        return ViewHolder(view)
-    }
-
-    // Replace the contents of a view (invoked by the layout manager)
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.apply {
-            organization.text = data[position].organization
-            this.position.text = data[position].position
-            period.text = data[position].period
-        }
-    }
-
-    // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = data.size
-
-}
