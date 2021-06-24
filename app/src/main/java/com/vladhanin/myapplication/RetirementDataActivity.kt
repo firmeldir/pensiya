@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.core.content.edit
 import androidx.core.view.isGone
@@ -13,6 +14,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textview.MaterialTextView
 import com.vladhanin.myapplication.models.User
 import java.text.SimpleDateFormat
+import java.util.*
 
 class RetirementDataActivity : AppCompatActivity() {
 
@@ -39,6 +41,11 @@ class RetirementDataActivity : AppCompatActivity() {
             findViewById<MaterialTextView>(R.id.pensionTypeText).text = it.type
             findViewById<MaterialTextView>(R.id.pensionOrganizationText).text = it.organization
             findViewById<MaterialTextView>(R.id.pensionDateText).text = it.date
+            findViewById<MaterialButton>(R.id.requestForPensionButton).isEnabled = false
+        }
+        
+        if(user.pension != null || ((Date().time - user.dateOfBirthday.time) / 31_536_000_000L) < 65){
+            findViewById<MaterialButton>(R.id.requestForPensionButton).isEnabled = false
         }
 
         findViewById<MaterialButton>(R.id.requestForPensionButton).apply {
