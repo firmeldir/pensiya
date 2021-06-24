@@ -13,7 +13,7 @@ class IncoreActivity : AppCompatActivity() {
 
         var user: User? = null
 
-        fun start(activity: AdminEditorActivity, user: User) {
+        fun start(activity: AppCompatActivity, user: User) {
             this.user = user
             activity.startActivity(Intent(activity, IncoreActivity::class.java))
         }
