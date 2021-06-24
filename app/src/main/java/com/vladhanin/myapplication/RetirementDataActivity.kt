@@ -12,6 +12,7 @@ import androidx.core.view.isVisible
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textview.MaterialTextView
 import com.vladhanin.myapplication.models.User
+import java.text.SimpleDateFormat
 
 class RetirementDataActivity : AppCompatActivity() {
 
@@ -25,12 +26,20 @@ class RetirementDataActivity : AppCompatActivity() {
         findViewById<MaterialButton>(R.id.jobsButton).setOnClickListener {startActivity(Intent(this, JobsActivity::class.java)) }
         findViewById<MaterialButton>(R.id.incomeButton).setOnClickListener { startActivity(Intent(this, IncoreActivity::class.java)) }
 
-        findViewById<MaterialTextView>(R.id.nameText).text = user.name
-        findViewById<MaterialTextView>(R.id.surnameText).text = user.surname
-        findViewById<MaterialTextView>(R.id.pensionIdText).text = user.pensionId
-        findViewById<MaterialTextView>(R.id.dateOfBirthdayText).text = user.dateOfBirthday.toString()
-        findViewById<MaterialTextView>(R.id.officialAddressText).text = user.officialAddress
-        findViewById<MaterialTextView>(R.id.actualAddressText).text = user.actualAddress
+        findViewById<MaterialTextView>(R.id.nameText).text = "Ім'я: " + user.name
+        findViewById<MaterialTextView>(R.id.surnameText).text = "Прізвище: " + user.surname
+        findViewById<MaterialTextView>(R.id.pensionIdText).text = "Номер пенсійної справи: " + user.pensionId
+        findViewById<MaterialTextView>(R.id.dateOfBirthdayText).text = "Дата народження: ${SimpleDateFormat("yyyy-mm-dd").format(user.dateOfBirthday)}"
+        findViewById<MaterialTextView>(R.id.officialAddressText).text = "Адреса реєстрації: " + user.officialAddress
+        findViewById<MaterialTextView>(R.id.actualAddressText).text = "Адреса фактичного місця проживання: " + user.actualAddress
+
+        //if pensioner
+        user.pension?.let {
+            findViewById<MaterialTextView>(R.id.border).isGone = false
+            findViewById<MaterialTextView>(R.id.pensionTypeText).text = it.type
+            findViewById<MaterialTextView>(R.id.pensionOrganizationText).text = it.organization
+            findViewById<MaterialTextView>(R.id.pensionDateText).text = it.date
+        }
 
         findViewById<MaterialButton>(R.id.requestForPensionButton).apply {
             setOnClickListener {

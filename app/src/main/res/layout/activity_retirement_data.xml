@@ -90,13 +90,56 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:ellipsize="end"
-            android:maxLines="1"
+            android:maxLines="2"
             android:text=""
             android:textColor="@color/black"
             android:textSize="20sp" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/actualAddressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/border"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:text="========================"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/pensionTypeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/pensionOrganizationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/pensionDateText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
