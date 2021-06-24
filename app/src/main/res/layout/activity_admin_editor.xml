@@ -23,7 +23,26 @@
         android:id="@+id/ed_passportId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Паспорт ID" />
+        android:hint="Пенсионная ID" />
+
+    <EditText
+        android:id="@+id/ed_date_of_birth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Дата Рождения" />
+
+    <EditText
+        android:id="@+id/ed_actual_adrress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Актуальный аддресс" />
+
+    <EditText
+        android:id="@+id/ed_formal_adress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Официальный аддресс" />
+
 
     <Button
         android:id="@+id/save"
