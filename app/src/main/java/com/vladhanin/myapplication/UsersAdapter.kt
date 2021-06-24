@@ -49,7 +49,7 @@ class UsersAdapter(val context: Context, var dataSet: Array<User>) :
                 Intent(context, RetirementDataActivity::class.java).apply {
                     putExtra(C_NAME, dataSet[position].name)
                     putExtra(C_SURNAME, dataSet[position].surname)
-                    putExtra(C_PASSPORT, dataSet[position].passportId)
+                    putExtra(C_PASSPORT, dataSet[position].pensionId)
                 }, null
             )
         }

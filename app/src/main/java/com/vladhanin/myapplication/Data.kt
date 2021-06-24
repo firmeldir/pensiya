@@ -2,15 +2,24 @@ package com.vladhanin.myapplication
 
 import com.vladhanin.myapplication.models.Income
 import com.vladhanin.myapplication.models.Job
+import com.vladhanin.myapplication.models.Pension
 import com.vladhanin.myapplication.models.User
+import java.time.Instant
+import java.util.*
 
 object Data {
 
     var CURRENT_USER: User? = null
 
-    val USERS = setOf<User>(
+    val USERS = setOf(
         User(
-            "firmeldir", "Йозеф", "Бевзенко", "156332142",
+            "1a111aaa111000000011",
+            "Йозеф",
+            "Бевзенко",
+            "156332142",
+            Date(999999000),
+            "",
+            "",
             listOf(
                 Income("Преподаватель", "КПИ", "21.04.2020", "19434"),
                 Income("Преподаватель", "КПИ", "21.03.2020", "19434"),
@@ -27,13 +36,19 @@ object Data {
                 Income("Преподаватель", "КПИ", "21.4.2019", "18000"),
                 Income("Преподаватель", "КПИ", "21.3.2019", "19434"),
                 Income("Преподаватель", "КПИ", "21.2.2019", "19434"),
-            ), mutableListOf(Job("Преподователь", "КПИ", "1960-2020")), false
+            ),
+            mutableListOf(Job("Преподователь", "КПИ", "1960-2020")),
+            null,
+            false
         ),
         User(
-            "subuday",
+            "6b101aaa111000220011",
             "Артем",
             "Бандровський",
             "996042174",
+            Date(889919000),
+            "",
+            "",
             listOf(
                 Income("Преподаватель", "КПИ", "21.04.2020", "19434"),
                 Income("Программист", "Интел", "21.04.2020", "105000"),
@@ -52,19 +67,42 @@ object Data {
                 Job("Программист", "Интел", "1958-2010"),
                 Job("Преподователь", "КПИ", "1960-2020")
             ),
+            Pension(
+                "Чорнобилець",
+                "Головне управління Пенсійного фонду України у Волинській області",
+                "22.02.2002"
+            ),
             false
         ),
         User(
-            "firmeldir1", "Атанас", "Балтача", "298475188",
+            "5b221cca111000220011",
+            "Атанас",
+            "Балтача",
+            "298475188",
+            Date(),
+            "",
+            "",
             listOf(
 
-            ), mutableListOf(), false
+            ),
+            mutableListOf(),
+            null,
+            false
         ),
         User(
-            "admin", "Лідія", "Архипчук", "276976705",
+            "gh221cca122200220011",
+            "Лідія",
+            "Архипчук",
+            "276976705",
+            Date(),
+            "",
+            "",
             listOf(
 
-            ), mutableListOf(), true
+            ),
+            mutableListOf(),
+            null,
+            true
         )
     )
 }

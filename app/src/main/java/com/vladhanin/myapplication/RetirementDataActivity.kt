@@ -57,7 +57,7 @@ class RetirementDataActivity : AppCompatActivity() {
                 }
                 findViewById<MaterialTextView>(R.id.nameText).text = "Імя: ${Data.CURRENT_USER!!.name}"
                 findViewById<MaterialTextView>(R.id.surnameText).text = "Прізвище: ${Data.CURRENT_USER!!.surname}"
-                findViewById<MaterialTextView>(R.id.passportIdText).text = "ID паспорту: ${Data.CURRENT_USER!!.passportId}"
+                findViewById<MaterialTextView>(R.id.passportIdText).text = "ID паспорту: ${Data.CURRENT_USER!!.pensionId}"
                 findViewById<MaterialTextView>(R.id.adminModeText).isGone = false
             }
             !Data.CURRENT_USER!!.isAdmin -> {
@@ -72,7 +72,7 @@ class RetirementDataActivity : AppCompatActivity() {
                 }
                 findViewById<MaterialTextView>(R.id.nameText).text = "Імя: ${Data.CURRENT_USER!!.name}"
                 findViewById<MaterialTextView>(R.id.surnameText).text = "Прізвище: ${Data.CURRENT_USER!!.surname}"
-                findViewById<MaterialTextView>(R.id.passportIdText).text = "ID паспорту: ${Data.CURRENT_USER!!.passportId}"
+                findViewById<MaterialTextView>(R.id.passportIdText).text = "ID паспорту: ${Data.CURRENT_USER!!.pensionId}"
             }
         }
     }

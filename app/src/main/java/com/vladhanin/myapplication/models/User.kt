@@ -1,11 +1,21 @@
 package com.vladhanin.myapplication.models
 
+import java.util.*
+
 data class User(
     var login: String,
     var name: String,
     var surname: String,
-    var passportId: String,
-    val incomes: List<Income>,
-    val jobs: MutableList<Job>,
+    var pensionId: String,
+    var dateOfBirthday: Date,
+
+    var officialAddress: String,
+    var actualAddress: String,
+
+    var incomes: List<Income>,
+    var jobs: MutableList<Job>,
+
+    var pension: Pension?,
+
     var isAdmin: Boolean
 )
