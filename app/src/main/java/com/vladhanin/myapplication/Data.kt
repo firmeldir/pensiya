@@ -105,4 +105,6 @@ object Data {
             true
         )
     )
+
+    val TEST_USER: User = USERS.toList()[0]
 }
