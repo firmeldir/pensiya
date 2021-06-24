@@ -37,7 +37,7 @@ object Data {
                 Income("Преподаватель", "КПИ", "21.3.2019", "19434"),
                 Income("Преподаватель", "КПИ", "21.2.2019", "19434"),
             ),
-            listOf(Job("Преподователь", "КПИ", "1960-2020")),
+            mutableListOf(Job("Преподователь", "КПИ", "1960-2020")),
             null,
             false
         ),
@@ -63,7 +63,7 @@ object Data {
                 Income("Преподаватель", "КПИ", "21.11.2019", "19434"),
                 Income("Программист", "Интел", "21.11.2019", "105000"),
             ),
-            listOf(
+            mutableListOf(
                 Job("Программист", "Интел", "1958-2010"),
                 Job("Преподователь", "КПИ", "1960-2020")
             ),
@@ -84,7 +84,7 @@ object Data {
             "",
             listOf(
 
-            ), listOf(),
+            ), mutableListOf(),
             null,
             false
         ),
@@ -98,7 +98,7 @@ object Data {
             "",
             listOf(
 
-            ), listOf(),
+            ), mutableListOf(),
             null,
             true
         )

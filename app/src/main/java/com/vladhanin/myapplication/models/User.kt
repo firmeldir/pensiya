@@ -13,7 +13,7 @@ data class User(
     var actualAddress: String,
 
     var incomes: List<Income>,
-    var jobs: List<Job>,
+    var jobs: MutableList<Job>,
 
     var pension: Pension?,
 
