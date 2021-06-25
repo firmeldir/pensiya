@@ -16,6 +16,12 @@ import com.vladhanin.myapplication.models.User
 import java.text.SimpleDateFormat
 import java.util.*
 
+//C_SHOW_REQUEST
+
+//1 - yes
+//2 - active
+//3 - timeout
+
 class RetirementDataActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,9 +53,10 @@ class RetirementDataActivity : AppCompatActivity() {
 
         findViewById<MaterialButton>(R.id.requestForPensionButton).apply {
             setOnClickListener {
+                isEnabled = false
                 Toast.makeText(context, "Запит надіслано", Toast.LENGTH_LONG).show()
                 if(user.login == Data.TEST_USER.login){
-                    getSharedPreferences(C_SP, Context.MODE_PRIVATE).edit { putBoolean(C_SHOW_REQUEST, true) }
+                    getSharedPreferences(C_SP, Context.MODE_PRIVATE).edit { putInt(C_SHOW_REQUEST, 2) }
                 }
             }
         }
@@ -58,7 +65,7 @@ class RetirementDataActivity : AppCompatActivity() {
             user != Data.CURRENT_USER -> {
                 findViewById<MaterialTextView>(R.id.modeText).text = "viewer mode"
                 findViewById<MaterialButton>(R.id.requestForPensionButton).isGone = true
-                if(getSharedPreferences(C_SP, Context.MODE_PRIVATE).getBoolean(C_SHOW_REQUEST, false) && user.login == Data.TEST_USER.login) {
+                if(getSharedPreferences(C_SP, Context.MODE_PRIVATE).getInt(C_SHOW_REQUEST, 1) == 2 && user.login == Data.TEST_USER.login) {
                     findViewById<MaterialButton>(R.id.checkRequestButton).apply {
                         isGone = false
                         setOnClickListener {
@@ -93,6 +100,10 @@ class RetirementDataActivity : AppCompatActivity() {
                 findViewById<MaterialButton>(R.id.jobsButton).setOnClickListener {startActivity(Intent(this, JobsActivity::class.java)) }
                 findViewById<MaterialButton>(R.id.incomeButton).setOnClickListener { startActivity(Intent(this, IncoreActivity::class.java)) }
             }
+        }
+
+        if(getSharedPreferences(C_SP, Context.MODE_PRIVATE).getInt(C_SHOW_REQUEST, 1) != 1){
+            findViewById<MaterialButton>(R.id.requestForPensionButton).isEnabled = false
         }
     }
 }

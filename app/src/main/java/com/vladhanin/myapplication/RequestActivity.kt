@@ -23,7 +23,7 @@ class RequestActivity : AppCompatActivity() {
 
         findViewById<MaterialButton>(R.id.acceptButton).setOnClickListener {
             getSharedPreferences(C_SP, Context.MODE_PRIVATE).edit {
-                putBoolean(C_SHOW_REQUEST, false)
+                putInt(C_SHOW_REQUEST, 3)
             }
             Toast.makeText(baseContext, "Підтверджено", Toast.LENGTH_LONG).show()
             finish()
@@ -31,7 +31,7 @@ class RequestActivity : AppCompatActivity() {
 
         findViewById<MaterialButton>(R.id.rejectButton).setOnClickListener {
             getSharedPreferences(C_SP, Context.MODE_PRIVATE).edit {
-                putBoolean(C_SHOW_REQUEST, false)
+                putInt(C_SHOW_REQUEST, 3)
             }
             Toast.makeText(baseContext, "Відхилено", Toast.LENGTH_LONG).show()
             finish()
