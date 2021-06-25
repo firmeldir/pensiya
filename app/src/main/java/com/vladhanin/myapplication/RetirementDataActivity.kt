@@ -28,7 +28,7 @@ class RetirementDataActivity : AppCompatActivity() {
         findViewById<MaterialTextView>(R.id.nameText).text = "Ім'я: " + user.name
         findViewById<MaterialTextView>(R.id.surnameText).text = "Прізвище: " + user.surname
         findViewById<MaterialTextView>(R.id.pensionIdText).text = "Номер пенсійної справи: " + user.pensionId
-        findViewById<MaterialTextView>(R.id.dateOfBirthdayText).text = "Дата народження: ${SimpleDateFormat("yyyy-mm-dd").format(user.dateOfBirthday)}"
+        findViewById<MaterialTextView>(R.id.dateOfBirthdayText).text = "Дата народження: ${SimpleDateFormat("yyyy-MM-dd").format(user.dateOfBirthday)}"
         findViewById<MaterialTextView>(R.id.officialAddressText).text = "Адреса реєстрації: " + user.officialAddress
         findViewById<MaterialTextView>(R.id.actualAddressText).text = "Адреса фактичного місця проживання: " + user.actualAddress
 

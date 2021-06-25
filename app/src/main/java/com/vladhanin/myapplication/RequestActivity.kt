@@ -37,6 +37,9 @@ class RequestActivity : AppCompatActivity() {
             finish()
         }
 
-        findViewById<RecyclerView>(R.id.jobs).adapter = JobAdapter(Data.CURRENT_USER?.jobs ?: listOf())
+        findViewById<RecyclerView>(R.id.jobs).adapter = JobAdapter(Data.TEST_USER.jobs)
+        findViewById<RecyclerView>(R.id.incomes).adapter = IncomeAdapter().apply {
+            add(Data.TEST_USER.incomes)
+        }
     }
 }
